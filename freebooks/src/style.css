@@ -23,7 +23,7 @@ code {
   border-radius: 10px;
 }
 
-.search--div {
+.search--div, .upload--div {
   padding-top: 10%;
   display: flex;
   flex-direction: column;
@@ -36,4 +36,9 @@ code {
   width: 100px;
   height: 30px;
   margin: 5px;
+}
+
+.back--arrow {
+  font-size: 30px;
+  margin: 10px;
 }
