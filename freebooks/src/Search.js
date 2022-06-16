@@ -4,8 +4,8 @@ import AfterSearch from './AfterSearch';
 
 
 
-function Search({uploadClicked, setUploadClicked, searchClicked,setSearchClicked}) {
 
+function Search({uploadClicked, setUploadClicked, searchClicked,setSearchClicked}) {
     const [data, setData] = useState([]);
     
     const fetchBooks = async () => {
@@ -13,6 +13,7 @@ function Search({uploadClicked, setUploadClicked, searchClicked,setSearchClicked
             const response = await fetch(`http://localhost:3000/books`);
             const booksData = await response.json();
             console.log('here is the data', booksData);
+            console.log(booksData)
             setData(booksData);
 
         } catch(err) {
@@ -51,7 +52,7 @@ function Search({uploadClicked, setUploadClicked, searchClicked,setSearchClicked
     
     return (
                 <>
-               {!searchClicked ? preSearch : <AfterSearch data={data}/>}
+               {!searchClicked ? preSearch : <AfterSearch data={data} searchClicked={searchClicked} setSearchClicked={setSearchClicked}/>}
                 </>
     );
 

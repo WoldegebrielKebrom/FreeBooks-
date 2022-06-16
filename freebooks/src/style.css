@@ -42,3 +42,22 @@ code {
   font-size: 30px;
   margin: 10px;
 }
+
+.afterSearch-logo {
+  margin-top: 0;
+  font-size: 70px;
+  text-align: center;
+}
+
+.returned-books {
+  display: flex;
+  padding: 5px;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.returned-books:hover {
+  color: blue;
+}

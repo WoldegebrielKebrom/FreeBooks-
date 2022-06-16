@@ -10,7 +10,7 @@ function LandingPage () {
 
     const [uploadClicked, setUploadClicked] = useState(false);
     const [searchClicked, setSearchClicked] = useState(false);
-    
+    console.log(searchClicked);
 
     let result;
     {!uploadClicked? result=<Search uploadClicked={uploadClicked} setUploadClicked={setUploadClicked}  
