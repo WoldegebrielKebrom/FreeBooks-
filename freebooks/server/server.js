@@ -17,3 +17,14 @@ app.get("/books", async (request,response) => {
     response.send(books);
 
 });
+
+app.get("/books/query", async (req, res, next) => {
+    const query = req.params.query;
+    
+    try {
+      const sauces = await Sauce.findAll({where: { category: query } });
+      res.send(sauces);
+    } catch (error) {
+      next(error);
+    }
+  });
