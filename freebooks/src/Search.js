@@ -14,8 +14,8 @@ function Search({uploadClicked, setUploadClicked, searchClicked,setSearchClicked
 
             const response = query==='' ? await fetch(`http://localhost:3000/books`) : await fetch(`http://localhost:3000/books/${query}`);
             const booksData = await response.json();
-            console.log('here is the data', booksData);
-            console.log(booksData)
+            // console.log('here is the data', booksData);
+            // console.log(booksData)
             setData(booksData);
 
         } catch(err) {

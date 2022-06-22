@@ -11,20 +11,39 @@ app.listen(port, () => console.log(`The server is listening on port ${port}`));
 
 app.use(express.json());
 
-
+// Get
 app.get("/books", async (request,response) => {
+    console.log(request.url)
     const books = await Book.findAll();
     response.send(books);
 
 });
 
-app.get("/books/query", async (req, res, next) => {
-    const query = req.params.query;
+// POST 
+app.post("/books", async (request,response) => {
+  try {
+    const newBook = await Book.create(request.body)
+    response.send(newBook)
+  } catch (error) {
+    next(error);
+  }
+})
+
+
+
+
+//Get single Book
+app.get("/books/:query", async (request, response) => {
+    const query = request.params.query;
+    console.log(query)
+    console.log('this is the query', query)
     
     try {
-      const sauces = await Sauce.findAll({where: { category: query } });
-      res.send(sauces);
+      const books = await Book.findAll({where: { category: query } });
+      response.send(books);
     } catch (error) {
+      response.send(error)
       next(error);
     }
   });
+
